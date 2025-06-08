@@ -159,5 +159,8 @@
     "@twilio/voice-errors": "1.8.0",
     "eventemitter3": "^4.0.7",
     "expo-modules-core": "^2.3.13"
+  },
+  "expo-module": {
+    "androidName": "TwilioVoice"   
   }
 }
