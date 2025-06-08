@@ -96,12 +96,6 @@
       "<rootDir>/types"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn run check"
-    }
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
