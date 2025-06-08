@@ -12,7 +12,7 @@ public class ExpoActivityLifecycleListeners implements ReactActivityLifecycleLis
 
   @Override
   public void onCreate(Activity activity, Bundle savedInstanceState) {
-    this.voiceActivityProxy = new VoiceActivityProxy(activity);
+    this.voiceActivityProxy = new VoiceActivityProxy(activity, null);
     this.voiceActivityProxy.onCreate(savedInstanceState);
   }
 
