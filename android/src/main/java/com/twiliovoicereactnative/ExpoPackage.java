@@ -1,6 +1,7 @@
 package com.twiliovoicereactnative;
 
 import android.content.Context;
+
 import expo.modules.core.interfaces.Package;
 import expo.modules.core.interfaces.ReactActivityLifecycleListener;
 import expo.modules.core.interfaces.ApplicationLifecycleListener;
@@ -11,11 +12,11 @@ import java.util.List;
 public class ExpoPackage implements Package {
   @Override
   public List<? extends ReactActivityLifecycleListener> createReactActivityLifecycleListeners(Context activityContext) {
-    return Collections.singletonList(new ExpoActivityLifecycleListeners());
+    return Collections.singletonList(new ExpoActivityLifecycleListener());
   }
 
   @Override
   public List<? extends ApplicationLifecycleListener> createApplicationLifecycleListeners(Context applicationContext) {
-    return Collections.singletonList(new ExpoApplicationLifecycleListeners());
+    return Collections.singletonList(new ExpoApplicationLifecycleListener());
   }
 }

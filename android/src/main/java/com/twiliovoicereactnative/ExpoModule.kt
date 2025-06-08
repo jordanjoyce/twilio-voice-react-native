@@ -11,9 +11,12 @@ import java.util.UUID
 import com.twiliovoicereactnative.CallRecordDatabase.CallRecord
 
 
+
 class ExpoModule : Module() {
+  private val log SDKLog(this.javaClass)
+
   override fun definition() = ModuleDefinition {
-    Name("TwilioVoiceExpo")
+    Name("TwilioVoiceReactNative")
 
     Function("voice_connect") { accessToken: String, twimlParams: HashMap<String, String>?, calleeName: String, displayName: String ->
       val context = appContext.reactContext ?: return@Function null
@@ -26,15 +29,12 @@ class ExpoModule : Module() {
 
       val uuid = UUID.randomUUID()
       val callListenerProxy = CallListenerProxy(uuid, context)
-
-      val call = VoiceApplicationProxy.getVoiceServiceApi().connect(
-        connectOptions.build(),
-        callListenerProxy
-      )
-
       val callRecord = CallRecordDatabase.CallRecord(
         uuid,
-        call,
+        VoiceApplicationProxy.getVoiceServiceApi().connect(
+          connectOptions.build(),
+          callListenerProxy
+        ),
         calleeName,
         twimlParams ?: HashMap(),
         CallRecord.Direction.OUTGOING,
